@@ -1,9 +1,16 @@
 .search-container {
     background-color: #06325d;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
 }
 .search-bg-img {
     width: 100%;
     object-fit: cover;
+    height: 100vh;
+}
+.drew-logo {
+    position: absolute;
+    top: 20px;
 }
 .search-section {
     position: absolute;
@@ -13,4 +20,33 @@
     right: 0;
     margin: auto;
     width: 745px;
+    display: flex;
+    height: auto;
+    flex-flow: row wrap;
+}
+.search-hdr {
+    flex: 1 1 100%;
+    font-weight: 300;
+    font-size: 45px;
+    text-align: center;
+}
+.search-section input {
+    border-radius: 0;
+    border: none;
+    height: auto;
+    font-size: 30px;
+    flex: 1 0;
+    height: 75px;
+}
+.search-section input::placeholder {
+    color: #b1b1b1;
+}
+.btn-search {
+    width: 170px;
+    border-radius: 0;
+    background-color: #00b4ff;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
 }

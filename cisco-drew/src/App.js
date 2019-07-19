@@ -8,7 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import rootReducers from './reducers';
 
-import SearchMain from './components/search-main/searchMain';
+import SearchMain from './components/search-main/SearchMain';
 import Dashboard from './components/dashboard/dashboard';
 
 const store = createStore(rootReducers, composeWithDevTools());
