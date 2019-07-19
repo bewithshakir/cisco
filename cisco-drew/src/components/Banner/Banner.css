@@ -3,6 +3,7 @@
     background: linear-gradient(60deg,#424961,#3e3e84);
     padding:0px 10px;
     overflow-x: hidden;
+    margin-top:55px;
 }
 .banner-container .col-md-4,.banner-container .col-md-3, .banner-container .col-md-6, .banner-container .col-md-12{
     text-align: left;

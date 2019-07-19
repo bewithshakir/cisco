@@ -1,0 +1,37 @@
+.related-bug{
+    background: rgb(22, 54, 107);
+    margin: 5px 10px 5px 15px;
+    border-radius: 5px;
+    background:'#16366b';
+    padding:10px;
+}
+.table-heading-relatedbug{
+    color:rgb(194, 200, 250);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.related-tabs{
+    width: 100%;
+    border-bottom: 1px solid #FFF;
+    margin:14px 0px;
+}
+.related-bug-id{
+    background: #FFF;
+    padding:10px 5px 2px 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    cursor:pointer;
+    margin-right: 10px;
+    font-size: 14px;
+}
+.lbl-heading{
+    font-size: 16px;
+    font-weight: 600;
+}
+.lbl-text{
+    font-size: 14px;
+}
+.related-bug .col-md-3, .related-bug .col-md-12{
+    line-height: 2em;
+}

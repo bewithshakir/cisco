@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import NavBar from '../navbar/Navbar';
-import Banner from '../Banner/Banner';
+import Banner from '../banner/Banner';
 import './dashboard.css';
-import Cardbox from '../Cardbox/Cardbox';
+import Cardbox from '../cardbox/Cardbox';
 import DataTableComp from '../data-table/index';
+import TacReproducible from '../tacReproStep/TAC_Reproducible';
+import RelatedBug from '../related-bug/relatedBug';
 
 class Dashboard extends Component {
     state = {
@@ -15,14 +17,14 @@ class Dashboard extends Component {
                 tableConfig: {
                     tableHeadings: data[1].columns,
                     tableRecords: data[0].tableData,
-                    tableBg:'#162b4c',
-                    tableHeaderBg:'#1c345d',
-                    tableHeaderColor:'#4e7ac9',
-                    tableBodyColor:'#FFF',
-                    tableHeaderText:'Related and Duplicate Bugs',
-                    tableHeaderTextColor:'#FFF',
-                    tableRowsPerPage:5,
-                    isTableSearch:false
+                    tableBg: '#FFF',
+                    tableHeaderBg: '#F5F5F5',
+                    tableHeaderColor: '#1c345d',
+                    tableBodyColor: '#1c345d',
+                    tableHeaderText: 'Log Parser',
+                    tableHeaderTextColor: '#1c345d',
+                    tableRowsPerPage: 5,
+                    isTableSearch: false
                 }
             });
         });
@@ -33,8 +35,10 @@ class Dashboard extends Component {
                 <NavBar />
                 <Banner />
                 <Cardbox />
-                <div className="row">
-                    <div className="col-md-4">sss</div>
+                <div className="row" style={{ marginTop: '-15px' }}>
+                    <div className="col-md-4 tac-card">
+                        <TacReproducible />
+                    </div>
                     <div className="col-md-8">
                         <DataTableComp
                             headings={this.state.tableConfig.tableHeadings}
@@ -49,6 +53,10 @@ class Dashboard extends Component {
                             isTableSearch={this.state.tableConfig.isTableSearch} />
                     </div>
                 </div>
+               
+                    <RelatedBug />
+               
+
             </div>
         )
     }

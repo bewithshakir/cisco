@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.css";
+import 'font-awesome/css/font-awesome.min.css';
+
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createStore } from 'redux';
@@ -8,7 +10,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import rootReducers from './reducers';
 
-import SearchMain from './components/search-main/SearchMain';
+import SearchMain from './components/search-main/searchMain';
 import Dashboard from './components/dashboard/dashboard';
 
 const store = createStore(rootReducers, composeWithDevTools());

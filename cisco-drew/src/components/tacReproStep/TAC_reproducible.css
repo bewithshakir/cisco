@@ -1,0 +1,76 @@
+.tac-card-panel{
+    border:1px solid #ddd;
+    border-radius: 5px;
+}
+.table-heading{
+    color:#333;
+}
+.title-style{
+    margin-top: 0px;
+    padding: 12px 15px 0px 15px;
+}
+
+.subtitle-style{
+    float: right;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.banner-image-style{
+    height: 110px;
+}
+
+.banner-user-image-style{
+    height: 150px;
+    width: 150px;
+    position: relative;
+    top: -70px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.buttonStyle{
+    padding: 2px 10px 4px 10px;
+    border: none;
+}
+
+.btn:active,.btn:focus{
+    text-decoration: none;
+    color: white !important;
+}
+
+.hidden{
+    display: none;
+}
+
+.btn-primary:focus{
+    box-shadow: none;
+    border:none;
+}
+
+.btn-primary:hover{
+    border: none;
+    border-color: none;
+}
+.user{
+    text-align: center;
+    position: relative;
+    z-index: 222;
+    padding-top: 60px;
+}
+.banner-tac{
+    background: #F5F5F5;
+    height: 288px;
+    background-size: 100%;
+}
+
+.tac-msg{
+    padding:10px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.usr-icon{
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}

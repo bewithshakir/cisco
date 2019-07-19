@@ -1,3 +1,9 @@
 .container-fluid{
     padding:0
 }
+.tac-card{
+    padding: 0;
+    margin: 0;
+    padding-left: 30px;
+    padding-top: 10px;
+}
