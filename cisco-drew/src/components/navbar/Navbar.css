@@ -1,0 +1,51 @@
+.navbar-style{
+    height: 55px;
+    background:#143761;
+    padding:0px 10px;
+  }
+
+.symbol-div-style{
+    position: absolute;
+    right: 20px;
+    top: 14px;
+    border-radius: 19px;
+}
+.symbol-span-style{
+    border-radius: 25px;
+    background-color: transparent;
+    border: none;
+    z-index: 10;
+}
+.input-box-position{
+    position: relative;
+    margin-top: 10px;
+    border-radius: 21px;
+    border-bottom-right-radius: 21px !important;
+    border-top-right-radius: 21px !important;
+    background: #FFF;
+}
+
+.name-row-style{
+    color: white;
+    margin-top: 10px;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.namespace{
+    margin-left: 10px;
+    font-size: 18px;
+    font-family: roboto,halvatica,arial,sans-serif;
+    font-weight: lighter;
+}
+.image-style{
+    height: 33px;
+    border-radius: 50%;
+}
+

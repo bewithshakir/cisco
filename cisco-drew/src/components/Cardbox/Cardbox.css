@@ -1,0 +1,44 @@
+.card-style{
+    position: relative;
+    top: -18px;
+    padding: 0px 15px;
+}
+.card-body{
+    padding:10px;
+}
+
+.first-card{
+    background:linear-gradient(140deg, #16eeee, #1479ee);
+    color: white;
+    border-radius: 8px;
+    height: 140px;
+    border: none;
+}
+.second-card{
+    background:linear-gradient(60deg, #f5385a, #f46039);
+    color: white;
+    border-radius: 8px;
+    min-height: 140px;
+    border: none;
+}
+.third-card{
+    background:linear-gradient(60deg, #2fcf8e, #2dceca);
+    color: white;
+    border-radius: 8px;
+    min-height: 140px;
+    border: none;
+}
+
+.no-margin{
+    margin: 0 !important;
+    color: white;
+    font-size: 15px;
+}
+
+.data-font-structuring{
+    font-size: 24px;
+    font-weight: bold;
+}
+.padding-right-zero{
+    padding-right: 0;
+}

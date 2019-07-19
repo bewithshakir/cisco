@@ -1,0 +1,25 @@
+.banner-container{
+    height:150px;
+    background: linear-gradient(60deg,#424961,#3e3e84);
+    padding:0px 10px;
+    overflow-x: hidden;
+}
+.banner-container .col-md-4,.banner-container .col-md-3, .banner-container .col-md-6, .banner-container .col-md-12{
+    text-align: left;
+    padding: 0;
+    margin: 0
+}
+.lbl-heading{
+    font-size: 16px;
+    font-weight: 400;
+    color:#fff;
+}
+.lbl-text{
+    font-size: 18px;
+    font-weight: 500;
+    color:#fff;
+    padding-left: 5px;
+}
+.row-padding{
+    padding: 10px 10px 5px 30px;
+}
