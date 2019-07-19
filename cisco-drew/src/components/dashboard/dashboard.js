@@ -31,7 +31,7 @@ class Dashboard extends Component {
     }
     render() {
         return (
-            <div className="container-fluid">
+            <div className="container-fluid" style={{overflowX:'hidden'}}>
                 <NavBar />
                 <Banner />
                 <Cardbox />
@@ -39,7 +39,7 @@ class Dashboard extends Component {
                     <div className="col-md-4 tac-card">
                         <TacReproducible />
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-8" style={{paddingLeft: '10px'}}>
                         <DataTableComp
                             headings={this.state.tableConfig.tableHeadings}
                             data={this.state.tableConfig.tableRecords}
