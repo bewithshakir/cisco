@@ -1,0 +1,178 @@
+[
+    {
+        "tableData": [
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "60",
+                "desc": "View"
+            },
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "60",
+                "desc": "View"
+            },
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "60",
+                "desc": "View"
+            },
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "90",
+                "desc": "View"
+            },
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "100",
+                "desc": "View"
+            },
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "60",
+                "desc": "View"
+            },
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "60",
+                "desc": "View"
+            },
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "60",
+                "desc": "View"
+            },
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "60",
+                "desc": "View"
+            },
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "60",
+                "desc": "View"
+            },
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "60",
+                "desc": "View"
+            },
+            {
+                "bug_id": "CSCvj2341",
+                "key_fature": "Log Files",
+                "de_priority": "HIGH",
+                "keywords": "ABC, DCE",
+                "interaction_score": "0.757",
+                "de_manager": "vipikum3",
+                "severity": "catastropic",
+                "bug_distance": "60",
+                "desc": "View"
+            }
+        ]
+    },
+    {
+        "columns": [
+            {
+                "Header": "RELATED BUG ID",
+                "id": "bug_id"
+            },
+            {
+                "Header": "KEY FEATURE",
+                "id": "key_fature"
+            },
+            {
+                "Header": "DE PRIORITY",
+                "id": "de_priority"
+            },
+            {
+                "Header": "KEYWORDS",
+                "id": "keywords"
+            },
+            {
+                "Header": "INTERACTION SCORE",
+                "id": "interaction_score"
+            },
+            {
+                "Header": "DE MANAGER",
+                "id": "de_manager"
+            },
+            {
+                "Header": "SEVERITY",
+                "id": "severity"
+            },
+            {
+                "Header": "BUG DISTANCE",
+                "id": "bug_distance"
+            },
+            {
+                "Header": "DESCRIPTION",
+                "id": "desc"
+            }
+        ]
+    }
+]
