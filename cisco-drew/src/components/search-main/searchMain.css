@@ -1,0 +1,16 @@
+.search-container {
+    background-color: #06325d;
+}
+.search-bg-img {
+    width: 100%;
+    object-fit: cover;
+}
+.search-section {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 745px;
+}
