@@ -50,3 +50,9 @@
     font-family: 'Open Sans', sans-serif;
     border: none;
 }
+.error-msg, .alert-danger {
+    flex: 1 100%;
+    color: red;
+    padding: 2px 15px;
+    margin-top: 15px;
+}

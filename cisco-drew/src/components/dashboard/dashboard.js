@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import NavBar from '../navbar/Navbar';
 import Banner from '../banner/Banner';
 import './dashboard.css';
-import Cardbox from '../cardbox/Cardbox';
+import queryString from 'query-string';
+
+import Cardbox from '../Cardbox/Cardbox';
 import DataTableComp from '../data-table/index';
 import TacReproducible from '../tacReproStep/TAC_Reproducible';
 import RelatedBug from '../related-bug/relatedBug';
@@ -28,6 +30,8 @@ class Dashboard extends Component {
                 }
             });
         });
+        const qValue = queryString.parse(this.props.location.search);
+        console.log('search parassssm', qValue)
     }
     render() {
         return (
