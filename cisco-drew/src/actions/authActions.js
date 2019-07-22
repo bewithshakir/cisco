@@ -1,13 +1,20 @@
 import axios from 'axios';
-import setAuthToken from '../utils/setAuthToken';
-import jwt_decode from 'jwt-decode';
-import { SET_CURRENT_USER } from './types';
+
+import { SET_CURRENT_USER, META_DATA } from './types';
 
 import setCurrentpUser from '../utils/setAuthToken';
 
+// Set logged in user
+export const setCurrentUser = token => {
+  return {
+    type: SET_CURRENT_USER,
+    payload: {'jwtToken': token}
+  };
+};
 
 // Login - Get User Token
-export const loginUser = (history) => dispatch => {
+export const loginUser = (history, bugId) => dispatch => {
+  debugger
     axios.defaults.headers = {
       'Content-Type':'text/plain'
     };
@@ -15,6 +22,7 @@ export const loginUser = (history) => dispatch => {
      axios
       .post('http://localhost:52000/api/auth/login', "test")
       .then(res => {
+        debugger
         // Save to localStorage
         const token = res.data.accessToken;
         // Set token to ls
@@ -22,30 +30,47 @@ export const loginUser = (history) => dispatch => {
        
        
         // Set token to Auth header
-        setAuthToken(token);
+        // setAuthToken(token);
         
         // Decode token to get user data
-    //    const decoded = jwt_decode(token);
+        // const decoded = jwt_decode(token);
         // Set current user
         
-        dispatch(setCurrentpUser(token));
-        history.push(`/dashboard?bugId=${this.state.inputVal}`);
+        dispatch({
+          type: SET_CURRENT_USER,
+          payload: {'jwtToken': token}
+        });
+        
       })
-      .catch(err =>{}
-        // dispatch({
-        //   type: GET_ERRORS,
-        //   payload: err.response.data
-        // })
+      .then(res => {
+        debugger
+        if (bugId) {
+          history.push(`/dashboard?bugId=${bugId}`)
+        }
+        
+      })
+      .catch(err =>{
+        dispatch({
+          type: 'GET_ERRORS',
+          payload: 'error'
+        })
+      }
       );
-
-      
-      
 };
 
-// Set logged in user
-export const setCurrentUser = token => {
-    return {
-      type: SET_CURRENT_USER,
-      payload: {'jwtToken': token}
-    };
+export const metaData = (token) => dispatch => {
+  axios.defaults.headers = {
+    'Content-Type':'text/plain',
+    'x-access-token': token
+  };
+
+  axios.get('http://localhost:52000/api/app/metadata')
+    .then(res =>  {
+      console.log('resss', res)
+      dispatch({
+        type: META_DATA,
+        payload: res
+      });
+    })
 };
+

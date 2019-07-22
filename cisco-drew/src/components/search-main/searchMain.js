@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import searchBg from '../../img/search-bg.png';
 import drewLogo from '../../img/drew-logo.png';
-import { loginUser } from '../../actions/authActions';
+import { loginUserAction } from '../../actions/loginAction';
 
 
 import './searchMain.css';
@@ -15,13 +15,13 @@ class SearchMain extends Component {
         errorMsg: false,
     }
     componentDidMount() {
-        if (localStorage.jwtToken) {
-            this.setState({ inputVal: localStorage.jwtToken })
+        if (localStorage.bugId) {
+            this.setState({ inputVal: localStorage.bugId })
         }
     }
     handleSearch() {
         if (this.state.inputVal) {
-            this.props.loginUser(this.props.history);
+            this.props.loginUserAction(this.props.history, this.state.inputVal);
         } else {
             this.setState({ errorMsg: true });
         }
@@ -57,9 +57,11 @@ class SearchMain extends Component {
 };
 
 
-const mapStateToProps = state => ({
-    // auth: state.auth,
-    // errors: state.errors
-});
+const mapStateToProps = state => {
+    console.log('state', state)
+    return {
+        auth: state.auth
+    }
+};
 
-export default connect(null)(SearchMain);
+export default connect(null, { loginUserAction })(SearchMain);
