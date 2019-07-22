@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './dashboard.css';
 import queryString from 'query-string';
+import { connect } from 'react-redux';
 
 import NavBar from '../navbar/Navbar';
 import Banner from '../banner/Banner';
@@ -8,12 +9,16 @@ import Cardbox from '../cardbox/Cardbox';
 import DataTableComp from '../data-table/index';
 import TacReproducible from '../tacReproStep/TAC_Reproducible';
 import RelatedBug from '../related-bug/relatedBug';
+import { loginUser } from '../../actions/authActions';
 
 class Dashboard extends Component {
     state = {
         tableConfig: { tableHeadings: [], tableRecords: [] }
     }
+    componentWillMount() {
+    }
     componentDidMount() {
+        this.props.loginUser();
         fetch('data/table-records.json').then(res => res.json()).then(data => {
             this.setState({
                 tableConfig: {
@@ -65,4 +70,11 @@ class Dashboard extends Component {
         )
     }
 };
-export default Dashboard;
+
+const mapStateToProps = state => {
+    console.log('state', state)
+    // auth: state.auth,
+    // errors: state.errors
+    return { auth : {name: 'shakir'}}
+};
+export default connect(mapStateToProps, { loginUser })(Dashboard);

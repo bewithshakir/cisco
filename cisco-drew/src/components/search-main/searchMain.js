@@ -15,15 +15,15 @@ class SearchMain extends Component {
         errorMsg: false,
     }
     componentDidMount() {
-        console.log('componentDidMount', localStorage.jwtToken)
         if (localStorage.jwtToken) {
             this.setState({ inputVal: localStorage.jwtToken })
         }
     }
     handleSearch() {
         if (this.state.inputVal) {
+            // this.props.loginUser();
             this.props.history.push(`/dashboard?bugId=${this.state.inputVal}`);
-            this.props.loginUser();
+            
         } else {
             this.setState({ errorMsg: true });
         }
@@ -64,4 +64,4 @@ const mapStateToProps = state => ({
     // errors: state.errors
 });
 
-export default connect(null, { loginUser })(SearchMain);
+export default connect(null)(SearchMain);
