@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import NavBar from '../navbar/Navbar';
-import Banner from '../banner/Banner';
 import './dashboard.css';
 import queryString from 'query-string';
 
+import NavBar from '../navbar/Navbar';
+import Banner from '../Banner/Banner';
 import Cardbox from '../Cardbox/Cardbox';
 import DataTableComp from '../data-table/index';
 import TacReproducible from '../tacReproStep/TAC_Reproducible';

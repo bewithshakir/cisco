@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Alert from 'react-bootstrap/Alert';
+import { connect } from 'react-redux';
 
 import searchBg from '../../img/search-bg.png';
 import drewLogo from '../../img/drew-logo.png';
+import { loginUser } from '../../actions/authActions';
 
 
 import './searchMain.css';
@@ -10,11 +12,18 @@ import './searchMain.css';
 class SearchMain extends Component {
     state = {
         inputVal: '',
-        errorMsg: false
+        errorMsg: false,
+    }
+    componentDidMount() {
+       console.log('componentDidMount', localStorage.jwtToken)
+       if (localStorage.jwtToken) {
+           this.setState({ inputVal: localStorage.jwtToken})
+       }
     }
     handleSearch() {
         if (this.state.inputVal) {
             this.props.history.push(`/dashboard?bugId=${this.state.inputVal}`);
+            this.props.loginUser();
         } else {
             this.setState({ errorMsg: true });
         }
@@ -49,4 +58,10 @@ class SearchMain extends Component {
     }
 };
 
-export default SearchMain;
+
+const mapStateToProps = state => ({
+    // auth: state.auth,
+    // errors: state.errors
+});
+
+export default connect(null, {loginUser})(SearchMain);
