@@ -4,12 +4,11 @@ import queryString from 'query-string';
 import { connect } from 'react-redux';
 
 import NavBar from '../navbar/Navbar';
-import Banner from '../banner/Banner';
-import Cardbox from '../cardbox/Cardbox';
+import Banner from '../Banner/Banner';
+import Cardbox from '../Cardbox/Cardbox';
 import DataTableComp from '../data-table/index';
 import TacReproducible from '../tacReproStep/TAC_Reproducible';
 import RelatedBug from '../related-bug/relatedBug';
-import { loginUser } from '../../actions/authActions';
 
 class Dashboard extends Component {
     state = {
@@ -18,7 +17,6 @@ class Dashboard extends Component {
     componentWillMount() {
     }
     componentDidMount() {
-        this.props.loginUser();
         fetch('data/table-records.json').then(res => res.json()).then(data => {
             this.setState({
                 tableConfig: {
@@ -77,4 +75,4 @@ const mapStateToProps = state => {
     // errors: state.errors
     return { auth : {name: 'shakir'}}
 };
-export default connect(mapStateToProps, { loginUser })(Dashboard);
+export default connect(mapStateToProps)(Dashboard);

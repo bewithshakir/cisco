@@ -7,7 +7,7 @@ import setCurrentpUser from '../utils/setAuthToken';
 
 
 // Login - Get User Token
-export const loginUser = userData => dispatch => {
+export const loginUser = (history) => dispatch => {
     axios.defaults.headers = {
       'Content-Type':'text/plain'
     };
@@ -22,18 +22,14 @@ export const loginUser = userData => dispatch => {
        
        
         // Set token to Auth header
-        // setAuthToken(token);
+        setAuthToken(token);
         
         // Decode token to get user data
-       // const decoded = jwt_decode(token);
+    //    const decoded = jwt_decode(token);
         // Set current user
         
-        // dispatch(setCurrentpUser(token));
-        // axios.defaults.headers.common['x-access-token'] = token;
-        // return axios.get('http://localhost:52000/api/app/metadata');
-      })
-      .then(res => {
-        console.log('reeee', res)
+        dispatch(setCurrentpUser(token));
+        history.push(`/dashboard?bugId=${this.state.inputVal}`);
       })
       .catch(err =>{}
         // dispatch({

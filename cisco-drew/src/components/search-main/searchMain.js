@@ -21,9 +21,7 @@ class SearchMain extends Component {
     }
     handleSearch() {
         if (this.state.inputVal) {
-            // this.props.loginUser();
-            this.props.history.push(`/dashboard?bugId=${this.state.inputVal}`);
-            
+            this.props.loginUser(this.props.history);
         } else {
             this.setState({ errorMsg: true });
         }
