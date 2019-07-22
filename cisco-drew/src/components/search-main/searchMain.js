@@ -15,10 +15,10 @@ class SearchMain extends Component {
         errorMsg: false,
     }
     componentDidMount() {
-       console.log('componentDidMount', localStorage.jwtToken)
-       if (localStorage.jwtToken) {
-           this.setState({ inputVal: localStorage.jwtToken})
-       }
+        console.log('componentDidMount', localStorage.jwtToken)
+        if (localStorage.jwtToken) {
+            this.setState({ inputVal: localStorage.jwtToken })
+        }
     }
     handleSearch() {
         if (this.state.inputVal) {
@@ -37,14 +37,14 @@ class SearchMain extends Component {
     render() {
         return (
             <div className="search-container">
-                <img src={searchBg} className="search-bg-img"/>
+                <img src={searchBg} className="search-bg-img" />
                 <div className="container">
-                    <img src={drewLogo} className="drew-logo"/>
+                    <img src={drewLogo} className="drew-logo" />
                 </div>
                 <div className="search-section">
                     <p className="search-hdr">Track your bug id</p>
-                    <input type="text" className="form-control" placeholder="Enter bug id" value={this.state.inputVal} onChange={this.onChange}/>
-                    <button className="btn btn-primary btn-search" onClick={()=> this.handleSearch()}>Search</button>
+                    <input type="text" className="form-control" placeholder="Enter cdets bug id, eg: CSCux72563" value={this.state.inputVal} onChange={this.onChange} />
+                    <button className="btn btn-primary btn-search" onClick={() => this.handleSearch()}>Search</button>
                     {this.state.errorMsg && (
                         ['danger'].map((variant, idx) => (
                             <Alert key={idx} variant={variant}>
@@ -64,4 +64,4 @@ const mapStateToProps = state => ({
     // errors: state.errors
 });
 
-export default connect(null, {loginUser})(SearchMain);
+export default connect(null, { loginUser })(SearchMain);

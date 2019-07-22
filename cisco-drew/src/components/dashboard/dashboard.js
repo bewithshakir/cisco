@@ -3,8 +3,8 @@ import './dashboard.css';
 import queryString from 'query-string';
 
 import NavBar from '../navbar/Navbar';
-import Banner from '../Banner/Banner';
-import Cardbox from '../Cardbox/Cardbox';
+import Banner from '../banner/Banner';
+import Cardbox from '../cardbox/Cardbox';
 import DataTableComp from '../data-table/index';
 import TacReproducible from '../tacReproStep/TAC_Reproducible';
 import RelatedBug from '../related-bug/relatedBug';

@@ -10,7 +10,7 @@ class Banner extends Component {
                         <span className="lbl-heading">Bug ID:</span><span className="lbl-text">CSCvq11329</span>
                     </div>
                     <div className="col-md-6">
-                        <span className="lbl-heading">CDET Link:</span><span className="lbl-text">https://cdetsng.cisco.com/webui/#view=CSCvq11329</span>
+                        <span className="lbl-heading">CDET Link:</span><span className="lbl-text"><a style={{color:'#FFF'}} href="https://cdetsng.cisco.com/webui/#view=CSCvq11329" target="_blank">https://cdetsng.cisco.com/webui/#view=CSCvq11329</a></span>
                     </div>
                     <div className="col-md-3">
                         <span className="lbl-heading">To be Fixed:</span><span className="lbl-text">015.002</span>
