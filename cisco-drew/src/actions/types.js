@@ -3,3 +3,7 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const META_DATA = 'META_DATA';
 export const GET_ERRORS = 'GET_ERRORS';
 export const GET_BANNER_DETAILS = 'GET_BANNER_DETAILS';
+export const GET_REPRO_STEPS = 'GET_REPRO_STEPS';
+export const GET_LOG_INFO = 'GET_LOG_INFO';
+export const GET_RELATED_BUGS = 'GET_RELATED_BUGS';
+export const GET_BUG_KEYWORDS = 'GET_BUG_KEYWORDS';

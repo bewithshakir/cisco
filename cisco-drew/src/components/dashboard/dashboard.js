@@ -10,7 +10,11 @@ import Cardbox from '../cardbox/Cardbox';
 import DataTableComp from '../data-table/index';
 import TacReproducible from '../tacReproStep/TAC_Reproducible';
 import RelatedBug from '../related-bug/relatedBug';
-import {metaDataAction} from '../../actions/metaDataAction';
+import { metaDataAction } from '../../actions/metaDataAction';
+import { reproStepsAction } from '../../actions/dashboardAction';
+import { bugKeywordsAction } from '../../actions/dashboardAction';
+import { logInfoAction } from '../../actions/dashboardAction';
+import { relatedBugsAction } from '../../actions/dashboardAction';
 
 
 
@@ -18,24 +22,28 @@ class Dashboard extends Component {
     state = {
         tableConfig: { tableHeadings: [], tableRecords: [] },
         metaData: '',
-        dashboardData: { bannerData: ''}
+        dashboardData: { bannerData: '' },
+        bugId: ''
     }
     constructor(props) {
         super(props);
     }
     componentWillMount() {
-        
+
     }
     componentDidMount() {
+        const qValue = queryString.parse(this.props.location.search);
+        const bugId = qValue.bugId;
         const token = localStorage.token;
         this.props.metaDataAction(token);
 
-        // const qValue = queryString.parse(this.props.location.search);
-        // if (qValue.bugId) {
-        //     localStorage.setItem('bugId', qValue.bugId);
-        //     this.props.bannerDataAction(token, qValue.bugId);
-        // }
-        
+        this.setState({bugId: bugId})
+
+        this.props.relatedBugsAction(token, bugId);
+        this.props.logInfoAction(token, bugId);
+        this.props.bugKeywordsAction(token, bugId);
+       
+
         fetch('data/table-records.json').then(res => res.json()).then(data => {
             this.setState({
                 tableConfig: {
@@ -52,23 +60,32 @@ class Dashboard extends Component {
                 }
             });
         });
-        
+
         
 
     }
-
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.metaData !== this.props.metaData) {
+            const qValue = queryString.parse(this.props.location.search);
+            const bugId = qValue.bugId;
+            const token = localStorage.token;
+            const cecId = nextProps.username ? nextProps.username : 'anand2';
+            nextProps.reproStepsAction(token, bugId, cecId);
+            console.log('nextProps.metaData', nextProps)
+        }
+    }
     render() {
-        console.log('metatadat', this.props)
+        // console.log('ALL PROPS >>>>>>>', this.props)
         return (
-            <div className="container-fluid" style={{overflowX:'hidden'}}>
-                <NavBar />
+            <div className="container-fluid" style={{ overflowX: 'hidden' }}>
+                <NavBar bugId={this.state.bugId} history={this.props.history}/>
                 <Banner />
                 <Cardbox />
                 <div className="row" style={{ marginTop: '-15px' }}>
                     <div className="col-md-4 tac-card">
                         <TacReproducible />
                     </div>
-                    <div className="col-md-8" style={{paddingLeft: '10px'}}>
+                    <div className="col-md-8" style={{ paddingLeft: '10px' }}>
                         <DataTableComp
                             headings={this.state.tableConfig.tableHeadings}
                             data={this.state.tableConfig.tableRecords}
@@ -82,9 +99,9 @@ class Dashboard extends Component {
                             isTableSearch={this.state.tableConfig.isTableSearch} />
                     </div>
                 </div>
-               
-                    <RelatedBug />
-               
+
+                <RelatedBug />
+
 
             </div>
         )
@@ -94,8 +111,25 @@ Dashboard.propTypes = {
     metaDataAction: propTypes.func.isRequired
 }
 const mapStateToProps = state => {
+    // console.log('state---', state)
+        // metaData: state.metaData.data,
+        // bugKeyData: state.bugKeyWordsData,
+        // bugRelatedData: state.relatedBugData,
+        // logData: state.logInfoData,
+        // reproStepsData: state.reproStepsData
     return {
-        metaData: state.metaData.data
+        metaData: state.metaData.data,
+        bugKeyData: state.bugKeywordData,
+        bugRelatedData: state.relatedBugData,
+        logData: state.logInfoData,
+        bugReproData: state.reproStepsData
+        
     }
 };
-export default connect(mapStateToProps, { metaDataAction })(Dashboard);
+export default connect(mapStateToProps, {
+    metaDataAction,
+    reproStepsAction,
+    bugKeywordsAction,
+    logInfoAction,
+    relatedBugsAction
+})(Dashboard);

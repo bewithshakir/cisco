@@ -6,12 +6,16 @@ import { combineReducers } from 'redux';
 // import postReducer from './postReducer';
 import loginReducer from './loginReducer';
 import metaData from './metaDataReducer';
-import {bannerReducer} from './dashboardReducer';;
+import { bannerReducer, reproStepsReducer, bugKeywordsReducer, relatedBugsReducer, logInfoReducer } from './dashboardReducer';
 
 const rootReducers = combineReducers({
     loginData: loginReducer,
     metaData: metaData,
-    bannerData: bannerReducer
+    bannerData: bannerReducer,
+    reproStepsData: reproStepsReducer,
+    relatedBugData: relatedBugsReducer,
+    logInfoData: logInfoReducer,
+    bugKeywordData: bugKeywordsReducer
 });
 
 export default rootReducers;
