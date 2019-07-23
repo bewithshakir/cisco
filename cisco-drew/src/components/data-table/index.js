@@ -161,12 +161,7 @@ class DataTableComp extends Component {
                             return <tr key={index}>
                                 {this.columns.map((colItem, colIndex) => {
                                     return <td key={colIndex}>
-                                        {colItem.id === 'bug_distance' &&
-                                            <div style={{ color: this.state.tableConfigData.tblBodyColor }}>{resData[colItem.id]}%
-                                        <div className="meter">
-                                                    <span style={{ width: resData.bug_distance + '%' }} className={this.getProgressClass(resData.bug_distance)}></span>
-                                                </div></div>}
-                                        {colItem.id !== 'bug_distance' && <span className={colItem.id} style={{ color: this.state.tableConfigData.tblBodyColor }}>{resData[colItem.id]}</span>}
+                                       <div>{resData[colItem.id]}</div>
                                     </td>
                                 })}
                             </tr>

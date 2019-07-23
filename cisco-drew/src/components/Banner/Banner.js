@@ -2,42 +2,53 @@ import React, { Component } from 'react';
 import './Banner.css';
 
 class Banner extends Component {
+    state = { data: '' };
+    componentDidMount() {
+        this.setState({ data: this.props.bannerData })
+    }
+
     render() {
+        const { bug_id, cdets_link, headline, severity, submitter, to_be_fixed, version } = this.state.data;
+
+
         return (
             <div className="banner-container">
                 <div className="row row-padding">
                     <div className="col-md-3">
-                        <span className="lbl-heading">Bug ID:</span><span className="lbl-text">CSCvq11329</span>
+                        <span className="lbl-heading">Bug ID:</span><span className="lbl-text">{bug_id ? bug_id : 'N/A'}</span>
                     </div>
                     <div className="col-md-6">
-                        <span className="lbl-heading">CDET Link:</span><span className="lbl-text"><a style={{color:'#FFF'}} href="https://cdetsng.cisco.com/webui/#view=CSCvq11329" target="_blank">https://cdetsng.cisco.com/webui/#view=CSCvq11329</a></span>
+                        <span className="lbl-heading">CDET Link:</span>
+                        <span className="lbl-text">
+                            <a style={{ color: '#FFF' }} href={cdets_link} target="_blank">{cdets_link}</a></span>
                     </div>
                     <div className="col-md-3">
-                        <span className="lbl-heading">To be Fixed:</span><span className="lbl-text">015.002</span>
+                        <span className="lbl-heading">To be Fixed:</span><span className="lbl-text">{to_be_fixed}</span>
                     </div>
                 </div>
                 <div className="row row-padding">
                     <div className="col-md-3">
-                        <span className="lbl-heading">Submitter:</span><span className="lbl-text">jachikab</span>
+                        <span className="lbl-heading">Submitter:</span><span className="lbl-text">{submitter}</span>
                     </div>
                     <div className="col-md-3">
-                        <span className="lbl-heading">Version:</span><span className="lbl-text">15.2(07)E</span>
+                        <span className="lbl-heading">Version:</span><span className="lbl-text">{version}</span>
                     </div>
                     <div className="col-md-3">
-                        <span className="lbl-heading">Severity:</span><span className="lbl-text">severe</span>
+                        <span className="lbl-heading">Severity:</span><span className="lbl-text">{severity}</span>
                     </div>
                     <div className="col-md-3">
                         <span className="lbl-heading">Keywords:</span><span className="lbl-text">work port channel</span>
                     </div>
-                  
+
                 </div>
                 <div className="row row-padding">
                     <div className="col-md-12">
-                        <span className="lbl-heading">Headline:</span><span className="lbl-text">REP on port channel not working in 15.2(7)E (IE4000,IE4010, IE3000)</span>
+                        <span className="lbl-heading">Headline:</span><span className="lbl-text">{headline}</span>
                     </div>
                 </div>
             </div>
         )
+
     }
 }
 

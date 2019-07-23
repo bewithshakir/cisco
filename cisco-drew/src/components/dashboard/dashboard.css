@@ -7,3 +7,20 @@
     padding-left: 30px;
     padding-top: 10px;
 }
+.log-table td{
+    width: 20%;
+}
+.log-table td div{
+    height: 80px;
+    overflow: scroll;
+} 
+.log-table td:nth-child(2){
+    width: 60%;
+}
+.log-table td:nth-child(2) div{
+    height: 80px;
+    overflow: scroll;
+}
+.log-table tr{
+border-bottom: 1px solid #ddd !important;
+}

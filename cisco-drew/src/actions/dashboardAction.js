@@ -69,7 +69,7 @@ export const logInfoAction = (token, bugId) => dispatch => {
       'Content-Type': 'text/plain',
       'x-access-token': token
     };
-    axios.get(`http://localhost:52000/api/cdets/get_bug_log_info/routing/${bugId}`)
+    axios.get(`http://localhost:52000/api/cdets/get_bug_log_info/iot/${bugId}`)
       .then(res => {
         if (res.data.err) {
           dispatch({

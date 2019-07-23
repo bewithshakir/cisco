@@ -5,6 +5,13 @@
     overflow-x: hidden;
     margin-top:55px;
 }
+.banner-container-table{
+   height: 380px;
+    background: #FFF;
+    padding:0px 10px;
+    overflow-x: hidden;
+    margin-top:10px;
+}
 .banner-container .col-md-4,.banner-container .col-md-3, .banner-container .col-md-6, .banner-container .col-md-12{
     text-align: left;
     padding: 0;
