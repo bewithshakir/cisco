@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import searchBg from '../../img/search-bg.png';
 import drewLogo from '../../img/drew-logo.png';
 import { loginUserAction } from '../../actions/loginAction';
+import { bannerDataAction } from '../../actions/dashboardAction';
 
 
 import './searchMain.css';
@@ -15,13 +16,21 @@ class SearchMain extends Component {
         errorMsg: false,
     }
     componentDidMount() {
-        if (localStorage.bugId) {
-            this.setState({ inputVal: localStorage.bugId })
-        }
+        this.props.loginUserAction();
+
+        // const qValue = queryString.parse(this.props.location.search);
+        // if (qValue.bugId) {
+        //     localStorage.setItem('bugId', qValue.bugId);
+        //     this.props.bannerDataAction(token, qValue.bugId);
+        // }
     }
     handleSearch() {
-        if (this.state.inputVal) {
-            this.props.loginUserAction(this.props.history, this.state.inputVal);
+        const token = localStorage.getItem('token');
+        
+        if (this.state.inputVal && token) {
+            // this.props.history.push(`/dashboard?bugId=${this.state.inputVal}`);
+            this.props.bannerDataAction(token, this.state.inputVal, this.props.history)
+            
         } else {
             this.setState({ errorMsg: true });
         }
@@ -33,6 +42,8 @@ class SearchMain extends Component {
         });
     }
     render() {
+        const {bannerData } = this.props;
+
         return (
             <div className="search-container">
                 <img src={searchBg} className="search-bg-img" />
@@ -50,6 +61,13 @@ class SearchMain extends Component {
                             </Alert>
                         ))
                     )}
+                    {bannerData.hasOwnProperty('isError') && (
+                        ['danger'].map((variant, idx) => (
+                            <Alert key={idx} variant={variant}>
+                                {bannerData.errorMsg}
+                            </Alert>
+                        ))
+                    )}
                 </div>
             </div>
         )
@@ -58,10 +76,11 @@ class SearchMain extends Component {
 
 
 const mapStateToProps = state => {
-    console.log('state', state)
+    console.log('state search', state)
     return {
-        auth: state.auth
+        token: state.loginData.token,
+        bannerData: state.bannerData
     }
 };
 
-export default connect(null, { loginUserAction })(SearchMain);
+export default connect(mapStateToProps, { loginUserAction, bannerDataAction })(SearchMain);

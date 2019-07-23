@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './dashboard.css';
+import propTypes from 'prop-types';
 import queryString from 'query-string';
 import { connect } from 'react-redux';
 
@@ -10,8 +11,7 @@ import DataTableComp from '../data-table/index';
 import TacReproducible from '../tacReproStep/TAC_Reproducible';
 import RelatedBug from '../related-bug/relatedBug';
 import {metaDataAction} from '../../actions/metaDataAction';
-import {loginUserAction} from '../../actions/loginAction';
-import { bannerDataAction } from '../../actions/dashboardAction';
+
 
 
 class Dashboard extends Component {
@@ -20,14 +20,21 @@ class Dashboard extends Component {
         metaData: '',
         dashboardData: { bannerData: ''}
     }
+    constructor(props) {
+        super(props);
+    }
     componentWillMount() {
+        
     }
     componentDidMount() {
-        
-        this.props.loginUserAction();
-        
+        const token = localStorage.token;
+        this.props.metaDataAction(token);
 
-        console.log('componentDid mount', this.props)
+        // const qValue = queryString.parse(this.props.location.search);
+        // if (qValue.bugId) {
+        //     localStorage.setItem('bugId', qValue.bugId);
+        //     this.props.bannerDataAction(token, qValue.bugId);
+        // }
         
         fetch('data/table-records.json').then(res => res.json()).then(data => {
             this.setState({
@@ -45,42 +52,13 @@ class Dashboard extends Component {
                 }
             });
         });
-        const qValue = queryString.parse(this.props.location.search);
-        if (qValue.bugId) {
-            debugger
-            localStorage.setItem('bugId', qValue.bugId);
-            this.props.bannerDataAction(localStorage.token, qValue.bugId);
-            
-        }
-    }
-    componentWillReceiveProps(nextProps, state) {
-        // if (this.props.hasOwnProperty('token')) {
-        //     if (this.props.token) {
-        //         this.props.metaDataAction(this.props.token);
-        //     }
-        // }
-        console.log('metaData', nextProps);
-        const dashboardData = {...this.state.dashboardData};
-
-        this.setState({metaData: nextProps.metaData});
         
-        this.setState(prevState => ({
-            dashboardData: {                   // object that we want to update
-                ...prevState.dashboardData,    // keep all other key-value pairs
-                bannerData:  nextProps.bannerData     // update the value of specific key
-            }
-        }))
+        
 
-        // this.setState({});
-        // console.log('propp', nextProps)
-        if (nextProps.token !== this.props.token) {
-            this.props.metaDataAction(nextProps.token);
-            this.setState({metaData: nextProps.metaData});
-            
-        }
     }
+
     render() {
-        console.log('dsfsdf', this.state)
+        console.log('metatadat', this.props)
         return (
             <div className="container-fluid" style={{overflowX:'hidden'}}>
                 <NavBar />
@@ -112,16 +90,12 @@ class Dashboard extends Component {
         )
     }
 };
-
+Dashboard.propTypes = {
+    metaDataAction: propTypes.func.isRequired
+}
 const mapStateToProps = state => {
-    console.log('state', state)
-    // auth: state.auth,
-    // errors: state.errors
-
-    return { 
-        token: state.auth.token,
-        metaData : state.metaData.data,
-        bannerData: state.bannerData
+    return {
+        metaData: state.metaData.data
     }
 };
-export default connect(mapStateToProps, { metaDataAction, loginUserAction, bannerDataAction })(Dashboard);
+export default connect(mapStateToProps, { metaDataAction })(Dashboard);

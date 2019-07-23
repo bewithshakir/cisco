@@ -4,14 +4,14 @@ import { combineReducers } from 'redux';
 // import errorReducer from './errorReducer';
 // import profileReducer from './profileReducer';
 // import postReducer from './postReducer';
-import authReducer from './authReducer';
+import loginReducer from './loginReducer';
 import metaData from './metaDataReducer';
-import bannerData from './dashboardReducer';
+import {bannerReducer} from './dashboardReducer';;
 
 const rootReducers = combineReducers({
-    auth: authReducer,
+    loginData: loginReducer,
     metaData: metaData,
-    bannerData: bannerData
+    bannerData: bannerReducer
 });
 
 export default rootReducers;

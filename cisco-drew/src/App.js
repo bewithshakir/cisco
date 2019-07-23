@@ -16,8 +16,6 @@ import thunk from 'redux-thunk';
 import SearchMain from './components/search-main/searchMain';
 import Dashboard from './components/dashboard/dashboard';
 import PrivateRoute from './components/common/PrivateRoute';
-import { setCurrentUser } from './actions/authActions'
-import setAuthToken from './utils/setAuthToken';
 
 const middleware = [thunk];
 const store = createStore(rootReducers, composeWithDevTools(applyMiddleware(...middleware)));
