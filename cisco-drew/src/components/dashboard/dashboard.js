@@ -40,7 +40,8 @@ class Dashboard extends Component {
         const token = localStorage.token;
         this.props.metaDataAction(token);
 
-        this.setState({ bugId: bugId })
+        this.setState({ bugId: bugId });
+        localStorage.bugId = bugId;
 
         this.props.relatedBugsAction(token, bugId);
         this.props.logInfoAction(token, bugId);
@@ -89,18 +90,20 @@ class Dashboard extends Component {
         if (bannerData.bug_id) {
             return <Banner bannerData={bannerData.bug_id ? this.props.bannerData : ''} />
         } else {
-            return <div className="banner-container"><div style={{
-                color: '#FFF',
-                textAlign: 'center',
-                paddingTop: '50px'
-            }}>No Bug info available for entered bug id !</div></div>
+            return <div className="banner-container">
+                    <div style={{
+                    color: '#FFF',
+                    textAlign: 'center',
+                    paddingTop: '50px'
+                }}>No Bug info available for entered bug id !</div>
+            </div>
         }
     }
     renderRelatedBug(bugRelatedData) {
         if (bugRelatedData.bug_id) {
             return <RelatedBug relatedBugData={bugRelatedData.bug_id ? this.props.bugRelatedData : ''} />
         } else {
-            return <div className="banner-container" style={{ margin: '5px 10px 5px 15px',borderRadius:'5px'}}><div style={{
+            return <div className="banner-container-bottom"><div style={{
                 color: '#FFF',
                 textAlign: 'center',
                 paddingTop: '50px'
@@ -109,7 +112,6 @@ class Dashboard extends Component {
     }
 
     renderLogInfoTable(logInfoData) {
-        console.log('----logInfodata', logInfoData)
         if (logInfoData && logInfoData.bug_id) {
             return (
                 <React.Fragment>
@@ -127,37 +129,71 @@ class Dashboard extends Component {
                             isTableSearch={this.state.tableConfig.isTableSearch} />
                     </div>
                 </React.Fragment>)
-        } else {
-            return <div className="banner-container-table card card-table table-bg-color" style={{marginRight: '15px'}}>
-                <div style={{padding:'20px'}}>No Log Info available for entered bug id !</div></div>
+        } 
+        else {
+            // return <div className="banner-container-table card card-table table-bg-color" style={{ marginRight: '15px' }}>
+            //     <div style={{ padding: '20px' }}>No Log Info available for entered bug id !</div></div>
+
+            return (
+                <div className="log-table">
+                    <div className="card card-table table-bg-color">
+                        <div className="table-heading">
+                            {this.state.tableConfig.tableHeaderText}
+                            <span style={{float:'right',cursor:'pointer'}}><i className="fa fa-download"></i></span> 
+                            <span style={{float:'right',paddingRight:'10px',cursor:'pointer'}}><i className="fa fa-expand"></i></span>
+                        </div>
+                        <div className="no-data-found">
+                            No Log Info available for entered bug id !
+                        </div>
+                    </div>
+                </div>
+            )
         }
+    }
+
+    renderTacReproduce(tacData) {
+
+        if (tacData.bug_id) {
+            return (
+                <TacReproducible bannerData={tacData.bug_id ? this.props.bannerData : ''} />
+            )
+        }
+
+
     }
 
     render() {
         const { bannerData, metaData, bugRelatedData, logData } = this.props;
-        console.log('this.props', this.props);
         return (
-            <div className="container-fluid" style={{ overflowX: 'hidden' }}>
+            <React.Fragment>
                 <NavBar bugId={this.state.bugId}
-                    history={this.props.history}
-                    username={metaData ? metaData.username : 'vipikum3'}
-                    displayUsername={metaData ? metaData.displayUsername : ''} />
+                history={this.props.history}
+                username={metaData ? metaData.username : 'vipikum3'}
+                displayUsername={metaData ? metaData.displayUsername : ''} />
+                
+                <div className="" style={{ overflowX: 'hidden' }}>
 
-                {this.renderBanner(bannerData)}
-
-                <Cardbox />
-                <div className="row" style={{ marginTop: '-15px' }}>
-                    <div className="col-md-4 tac-card">
-                        <TacReproducible />
+                    <div className="banner-container">
+                        {this.renderBanner(bannerData)}
                     </div>
-                    <div className="col-md-8" style={{ paddingLeft: '10px' }}>
-                        {this.renderLogInfoTable(logData)}
+
+                    <Cardbox />
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-md-4 tac-card prt-7">
+                                {this.renderTacReproduce(bannerData)}
+                            </div>
+                            <div className="col-md-8 plt-7">
+                                {this.renderLogInfoTable(logData)}
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                {this.renderRelatedBug(bugRelatedData)}
+                    {this.renderRelatedBug(bugRelatedData)}
 
-            </div>
+                 </div>
+            </React.Fragment>
+            
         )
     }
 };

@@ -4,9 +4,9 @@ import './Cardbox.css';
 class Cardbox extends Component {
     render() {
         return (
-            <div className="card-style">
+            <div className="card-style container-fluid">
                 <div className="row">
-                    <div className="col-md-4 padding-right-zero">
+                    <div className="col-md-4 prt-7">
                         <div className="card first-card">
                             <div className="card-body">
                                 <h5 className="card-title no-margin">TOTAL LOG FILES</h5>
@@ -15,7 +15,7 @@ class Cardbox extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4 padding-right-zero">
+                    <div className="col-md-4 plt-7 prt-7">
                         <div className="card second-card">
                             <div className="card-body">
                                 <h5 className="card-title no-margin">RELATED & DUPLICATE FOUND</h5>
@@ -23,7 +23,7 @@ class Cardbox extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4 plt-7">
                         <div className="card third-card">
                             <div className="card-body">
                                 <h5 className="card-title no-margin">TOPIC SEARCH FOUND</h5>

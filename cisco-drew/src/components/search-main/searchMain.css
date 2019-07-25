@@ -1,6 +1,6 @@
 .search-container {
     background-color: #06325d;
-    font-family: 'Open Sans', sans-serif;
+    
     color: #fff;
 }
 .search-bg-img {
@@ -55,4 +55,10 @@
     color: red;
     padding: 2px 15px;
     margin-top: 15px;
+}
+.search-section .fa-times {
+    color: #505050;
+    bottom: 26px;
+    font-size: 25px;
+    left: calc(100% - 200px);
 }

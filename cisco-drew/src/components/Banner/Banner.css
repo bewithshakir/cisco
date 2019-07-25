@@ -1,9 +1,9 @@
 .banner-container{
-    height:150px;
+    min-height:100px;
     background: linear-gradient(60deg,#424961,#3e3e84);
-    padding:0px 10px;
+    padding:15px 10px;
     overflow-x: hidden;
-    margin-top:55px;
+    margin-top: 60px;
 }
 .banner-container-table{
    height: 380px;
@@ -12,11 +12,7 @@
     overflow-x: hidden;
     margin-top:10px;
 }
-.banner-container .col-md-4,.banner-container .col-md-3, .banner-container .col-md-6, .banner-container .col-md-12{
-    text-align: left;
-    padding: 0;
-    margin: 0
-}
+
 .lbl-heading{
     font-size: 16px;
     font-weight: 400;
@@ -30,4 +26,7 @@
 }
 .row-padding{
     padding: 10px 10px 5px 30px;
+}
+.lbl-text a {
+    text-decoration: underline;
 }

@@ -62,15 +62,29 @@
     background: #F5F5F5;
     height: 288px;
     background-size: 100%;
+    margin: 0 -10px;
 }
 
 .tac-msg{
-    padding:10px;
+    padding:30px 10px 10px ;
     font-size: 14px;
     font-weight: 400;
+    height: calc(100% - 150px);
+    overflow: auto;
 }
 .usr-icon{
     height: 100px;
+    width: 100px;
     border-radius: 50%;
     border: 1px solid #ddd;
+    margin-top: -30px;
+}
+.card-footer {
+    padding: 10px 10px;
+    background: white;
+    text-align: right;
+}
+.card-footer .btn {
+    padding: 3px 10px;
+    font-size: 14px;
 }

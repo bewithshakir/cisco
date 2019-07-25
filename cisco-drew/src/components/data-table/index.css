@@ -89,6 +89,7 @@
   }
   .card-table{
     border:1px solid #ddd;
+    height: 100%;
   }
   .table-heading{
     color: #FFF;

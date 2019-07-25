@@ -29,7 +29,7 @@ export const bannerDataAction = (token, bugId, history) => dispatch => {
             payload: res.data
           });
           if (history) {
-            history.push(`/dashboard?bugId=${bugId}`)
+            history.push(`/dashboard?bugId=${bugId}`);
           }
         }
 

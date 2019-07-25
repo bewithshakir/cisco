@@ -137,12 +137,15 @@ class DataTableComp extends Component {
 
     render() {
         return <React.Fragment>
-            <div className="card card-table table-bg-color" style={{ margin: '10px', background: this.state.tableConfigData.tblBg ,height:'380px'}}>
+            <div className="card card-table table-bg-color">
                 <div className="table-heading" style={{ color: this.state.tableConfigData.tblHeaderTxtColor }}>{this.state.tableConfigData.tblheadertext}
-                <span style={{float:'right',cursor:'pointer'}}><i className="fa fa-download"></i></span> 
-                <span style={{float:'right',paddingRight:'10px',cursor:'pointer'}}><i className="fa fa-expand"></i></span>
+                    <span style={{float:'right',cursor:'pointer'}}><i className="fa fa-download"></i></span> 
+                    <span style={{float:'right',paddingRight:'10px',cursor:'pointer'}}><i className="fa fa-expand"></i></span>
                 </div>
+
                 {this.state.tableConfigData.isTblSearch && <input type="text" value={this.state.textVal} className="form-control" placeholder="Enter the Search Criteria" onChange={this.handleChange}></input>}
+                
+                
                 <table className="table">
                     <thead>
                         <tr style={{ background: this.state.tableConfigData.tblHeaderBg }}>
@@ -168,6 +171,7 @@ class DataTableComp extends Component {
                         })}
                     </tbody>
                 </table>
+
                 {this.state.allTableRecords.length && this.state.tableConfigData.tblRowsPerPage && <Pagination
                     totalRecords={this.tableData.length}
                     pageLimit={this.state.tableConfigData.tblRowsPerPage}

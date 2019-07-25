@@ -1,11 +1,8 @@
-.container-fluid{
-    padding:0
-}
 .tac-card{
-    padding: 0;
-    margin: 0;
-    padding-left: 30px;
-    padding-top: 10px;
+   
+}
+.log-table {
+    height: 100%;
 }
 .log-table td{
     width: 20%;
@@ -22,5 +19,23 @@
     overflow: scroll;
 }
 .log-table tr{
-border-bottom: 1px solid #ddd !important;
+border-top: 1px solid #ddd !important;
+}
+.no-data-found {
+    padding: 15px 10px;
+    text-align: center;
+}
+.card .no-data-found{
+    border-top: 1px solid #d1d2d3;
+}
+.table thead th {
+    border-width: 1px;
+}
+
+.banner-container-bottom {
+    background: #33346d;
+    margin-bottom: 48px;
+    margin-top: 15px;
+    padding: 10px 0;
+    min-height: 320px;
 }

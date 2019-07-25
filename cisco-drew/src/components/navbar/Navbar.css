@@ -7,11 +7,12 @@
     top: 0;
     width: 100%;
     z-index: 222;
+    display: none;
   }
 
 .symbol-div-style{
     position: absolute;
-    right: 20px;
+    right: 35px;
     top: 14px;
     border-radius: 19px;
 }
@@ -53,5 +54,63 @@
     height: 33px;
     width: 33px;
     border-radius: 50%;
+}
+.fa-info-circle {
+    margin-right: 10px;
+}
+
+.top-navabar {
+    background: #072446;
+    color: #FFF;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.top-navabar .left-section {
+    display: flex;
+}
+.top-navabar .input-group {
+    width: 400px;
+    align-items: baseline;
+}
+.top-navabar .input-group .fa-info-circle {
+    margin-left: 10px;
+}
+.top-navabar .logo-area {
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+.profile-section {
+    display: flex;
+    align-items: center;
+}
+.top-navabar .btn-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: 20px;
+}
+.top-navabar .profile-section .btn-toolbar::after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    background: #e6e6e6;
+    margin-right: 10px;
+
+}
+.input-group .fa-times {
+    right: 46px;
+    top: 19px;
+}
+.fa-times {
+    position: absolute;
+    color: #656565;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 10;
 }
 

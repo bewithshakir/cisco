@@ -16,6 +16,8 @@ import thunk from 'redux-thunk';
 import SearchMain from './components/search-main/searchMain';
 import Dashboard from './components/dashboard/dashboard';
 import PrivateRoute from './components/common/PrivateRoute';
+import Footer from './components/footer/Footer';
+
 
 const middleware = [thunk];
 const store = createStore(rootReducers, composeWithDevTools(applyMiddleware(...middleware)));
@@ -54,6 +56,7 @@ function App() {
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
           </Switch>
+          <Footer/>
         </div>
       </Router>
     </Provider>

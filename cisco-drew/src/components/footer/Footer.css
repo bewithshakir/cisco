@@ -1,0 +1,15 @@
+.footer-section {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    background: #031427;
+    padding: 7px 15px;
+    justify-content: space-between;
+    display: flex;
+    font-size: 12px;
+}
+.footer-section .hyperlink-user {
+    margin: 0 10px;
+    color: #50b9f9;
+}
