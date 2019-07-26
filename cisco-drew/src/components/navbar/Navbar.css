@@ -24,7 +24,6 @@
 }
 .input-box-position{
     position: relative;
-    margin-top: 10px;
     border-radius: 21px;
     border-bottom-right-radius: 21px !important;
     border-top-right-radius: 21px !important;
@@ -69,6 +68,7 @@
 }
 .top-navabar .left-section {
     display: flex;
+    align-items: center;
 }
 .top-navabar .input-group {
     width: 400px;
@@ -81,6 +81,9 @@
     color: #FFF;
     font-size: 18px;
     font-weight: 500;
+    
+}
+.top-navabar .logo-area + .logo-area {
     margin-right: 10px;
 }
 .profile-section {
@@ -104,7 +107,7 @@
 }
 .input-group .fa-times {
     right: 46px;
-    top: 19px;
+    top: 10px;
 }
 .fa-times {
     position: absolute;
@@ -113,4 +116,17 @@
     cursor: pointer;
     z-index: 10;
 }
+.tooltip-arrow,
+.tooltip > .tooltip-inner {background-color: #fff; color: #000000; }
 
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.bs-tooltip-bottom .arrow::before {
+  border-bottom-color: #fff; /* Red */
+}
+
+.btn-toolbar a {
+    color: inherit;
+}
+.help-container {
+    padding-top: 60px;
+}

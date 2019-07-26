@@ -17,6 +17,7 @@ import SearchMain from './components/search-main/searchMain';
 import Dashboard from './components/dashboard/dashboard';
 import PrivateRoute from './components/common/PrivateRoute';
 import Footer from './components/footer/Footer';
+import Help from './components/Help';
 
 
 const middleware = [thunk];
@@ -52,7 +53,7 @@ function App() {
       <Router>
         <div>
           <Route exact path="/" component={SearchMain}></Route>
-          {/* <Route exact path="/dashboard" component={Dashboard}></Route> */}
+          <Route exact path="/help" component={Help}></Route>
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
           </Switch>

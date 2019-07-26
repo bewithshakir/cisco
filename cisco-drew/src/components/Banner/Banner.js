@@ -15,26 +15,26 @@ class Banner extends Component {
             <div className="container-fluid">
                 <div className="row mb-2">
                     <div className="col-md-3">
-                        <span className="lbl-heading">Bug ID:</span><span className="lbl-text">{bug_id ? bug_id : 'N/A'}</span>
+                        <span className="lbl-heading">Bug ID:</span><span className="lbl-text">{bug_id ? bug_id : 'Not Available'}</span>
                     </div>
                     <div className="col-md-6">
                         <span className="lbl-heading">CDET Link:</span>
                         <span className="lbl-text">
-                            <a style={{ color: '#FFF' }} href={cdets_link} target="_blank">{cdets_link}</a></span>
+                            <a style={{ color: '#FFF' }} href={cdets_link} target="_blank">{cdets_link ? cdets_link : 'Not Available'}</a></span>
                     </div>
                     <div className="col-md-3">
-                        <span className="lbl-heading">To be Fixed:</span><span className="lbl-text">{to_be_fixed}</span>
+                        <span className="lbl-heading">To be Fixed:</span><span className="lbl-text">{to_be_fixed ? to_be_fixed : 'Not Available'}</span>
                     </div>
                 </div>
                 <div className="row mb-2">
                     <div className="col-md-3">
-                        <span className="lbl-heading">Submitter:</span><span className="lbl-text">{submitter}</span>
+                        <span className="lbl-heading">Submitter:</span><span className="lbl-text">{submitter ? submitter : 'Not Available'}</span>
                     </div>
                     <div className="col-md-3">
-                        <span className="lbl-heading">Version:</span><span className="lbl-text">{version}</span>
+                        <span className="lbl-heading">Version:</span><span className="lbl-text">{version ? version : 'Not Available'}</span>
                     </div>
                     <div className="col-md-3">
-                        <span className="lbl-heading">Severity:</span><span className="lbl-text">{severity}</span>
+                        <span className="lbl-heading">Severity:</span><span className="lbl-text">{severity ? severity : 'Not Available'}</span>
                     </div>
                     <div className="col-md-3">
                         <span className="lbl-heading">Keywords:</span><span className="lbl-text">work port channel</span>
@@ -43,7 +43,7 @@ class Banner extends Component {
                 </div>
                 <div className="row">
                     <div className="col-md-12">
-                        <span className="lbl-heading">Headline:</span><span className="lbl-text">{headline}</span>
+                        <span className="lbl-heading">Headline:</span><span className="lbl-text">{headline ? headline : 'Not Available'}</span>
                     </div>
                 </div>
             </div>

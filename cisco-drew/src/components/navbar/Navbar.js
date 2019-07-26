@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 import logoCisco from '../../img/cisco-logo.png';
 import { ButtonToolbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
@@ -43,10 +44,14 @@ class Navbar extends Component {
                             <div className="col-md-12">
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div className="left-section">
-                                        <a href="#" className="logo-area">
+                                        <a href="https://www.cisco.com/" className="logo-area" target="_blank">
                                             <img src={logoCisco} alt="cisco"/>
-                                            <span>Software X-Ray | Drew</span>
                                         </a>
+                                        <Link to="/" className="logo-area" >
+                                            <span>Software X-Ray | Drew</span>
+                                        </Link>
+                                            
+                                        
                                         {isSearchField && (
                                             <div className="input-group">
                                                 <input type="text" className="form-control input-box-position" placeholder="Bug ID" aria-label="bugID" aria-describedby="basic-addon1"
@@ -87,11 +92,13 @@ class Navbar extends Component {
                                                     placement={placement}
                                                     overlay={
                                                         <Tooltip id={`tooltip-${placement}`}>
-                                                            Go to hell page
+                                                            Go to help page
                                                         </Tooltip>
                                                     }
                                                     >
-                                                    <i className="fa fa-info-circle"></i>
+                                                    <Link to="/help">
+                                                        <i className="fa fa-info-circle"></i>
+                                                    </Link>
                                                 </OverlayTrigger>
                                             ))}
                                         </ButtonToolbar>

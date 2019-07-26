@@ -15,8 +15,7 @@ import {
     reproStepsAction,
     bugKeywordsAction,
     logInfoAction,
-    relatedBugsAction,
-    bannerDataAction
+    relatedBugsAction
 } from '../../actions/dashboardAction';
 
 
@@ -41,12 +40,13 @@ class Dashboard extends Component {
         this.props.metaDataAction(token);
 
         this.setState({ bugId: bugId });
-        localStorage.bugId = bugId;
+
+        // localStorage.bugId = bugId;
 
         this.props.relatedBugsAction(token, bugId);
         this.props.logInfoAction(token, bugId);
         this.props.bugKeywordsAction(token, bugId);
-        this.props.bannerDataAction(token, bugId);
+        // this.props.bannerDataAction(token, bugId);
 
 
         this.setState({
@@ -90,13 +90,7 @@ class Dashboard extends Component {
         if (bannerData.bug_id) {
             return <Banner bannerData={bannerData.bug_id ? this.props.bannerData : ''} />
         } else {
-            return <div className="banner-container">
-                    <div style={{
-                    color: '#FFF',
-                    textAlign: 'center',
-                    paddingTop: '50px'
-                }}>No Bug info available for entered bug id !</div>
-            </div>
+            return <Banner bannerData={[]} />
         }
     }
     renderRelatedBug(bugRelatedData) {
@@ -151,25 +145,22 @@ class Dashboard extends Component {
         }
     }
 
-    renderTacReproduce(tacData) {
-
-        if (tacData.bug_id) {
+    renderTacReproduce(tacData, bugReproData) {
             return (
-                <TacReproducible bannerData={tacData.bug_id ? this.props.bannerData : ''} />
+                <TacReproducible bannerData={tacData.bug_id ? this.props.bannerData : ''} reproStepsData={bugReproData ? bugReproData : null} />
             )
-        }
-
-
     }
 
     render() {
-        const { bannerData, metaData, bugRelatedData, logData } = this.props;
+        const { bannerData, metaData, bugRelatedData, logData, bugReproData } = this.props;
+        console.log('---metaData-', metaData)
         return (
             <React.Fragment>
                 <NavBar bugId={this.state.bugId}
                 history={this.props.history}
-                username={metaData ? metaData.username : 'vipikum3'}
-                displayUsername={metaData ? metaData.displayUsername : ''} />
+                username={metaData ? metaData.username : ''}
+                displayUsername={metaData ? metaData.displayUsername : ''}
+                isSearchField={true} />
                 
                 <div className="" style={{ overflowX: 'hidden' }}>
 
@@ -181,7 +172,7 @@ class Dashboard extends Component {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-md-4 tac-card prt-7">
-                                {this.renderTacReproduce(bannerData)}
+                                {this.renderTacReproduce(bannerData, bugReproData)}
                             </div>
                             <div className="col-md-8 plt-7">
                                 {this.renderLogInfoTable(logData)}
@@ -201,6 +192,7 @@ Dashboard.propTypes = {
     metaDataAction: propTypes.func.isRequired
 }
 const mapStateToProps = state => {
+    console.log('---state---', state)
     return {
         metaData: state.metaData.data,
         bugKeyData: state.bugKeywordData,
@@ -216,6 +208,5 @@ export default connect(mapStateToProps, {
     reproStepsAction,
     bugKeywordsAction,
     logInfoAction,
-    relatedBugsAction,
-    bannerDataAction
+    relatedBugsAction
 })(Dashboard);

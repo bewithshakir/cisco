@@ -17,18 +17,19 @@ import './searchMain.css';
 class SearchMain extends Component {
     state = {
         inputVal: '',
-        errorMsg: false,
+        errorMsg: false
     }
     componentDidMount() {
         this.props.loginUserAction();
 
-        
         if (localStorage.bugId) {
-            this.setState({ inputVal: localStorage.bugId })
+            this.setState({ inputVal: localStorage.bugId });
         }
         if (localStorage.token) {
             this.props.metaDataAction(localStorage.token);
         }
+
+        
     }
     handleSearch() {
         const token = localStorage.getItem('token');
@@ -49,6 +50,9 @@ class SearchMain extends Component {
     }
     resetField = ()=> {
         this.setState({inputVal: ''})
+    }
+    showError() {
+
     }
     render() {
         const { bannerData , metaData} = this.props;
@@ -71,26 +75,27 @@ class SearchMain extends Component {
                     <div className="search-section">
                         <p className="search-hdr">Track your bug id</p>
                         <div style={{position: 'relative', display: 'flex', flex: '1'}}>
-                            <input type="text" className="form-control" placeholder="Enter CDET bug id, eg: CSCux72563" value={this.state.inputVal} onChange={this.onChange} />
+                            <input type="text" className="form-control" placeholder="Enter CDETS bug id, eg: CSCux72563" value={this.state.inputVal} onChange={this.onChange} />
                             {this.state.inputVal && (
                                 <i className="fa fa-times" onClick={this.resetField}></i>
                             )}
-                            <button className="btn btn-primary btn-search" onClick={() => this.handleSearch()}>Search</button>
+                            <button className="btn btn-primary btn-search" onClick={() => this.handleSearch()} disabled={this.state.inputVal ? false: true}>Search</button>
                         </div>
-                        {this.state.errorMsg && (
+                        
+                        {(this.state.errorMsg || (bannerData.hasOwnProperty('isError'))) && (
                             ['danger'].map((variant, idx) => (
                                 <Alert key={idx} variant={variant}>
-                                    Please fill the bug id
+                                    {bannerData.hasOwnProperty('isError') ? bannerData.errorMsg : 'Please fill the bug id'}
                             </Alert>
                             ))
                         )}
-                        {(bannerData.hasOwnProperty('isError')) && (
+                        {/* {(bannerData.hasOwnProperty('isError')) && (
                             ['danger'].map((variant, idx) => (
                                 <Alert key={idx} variant={variant}>
                                     {bannerData.errorMsg}
                                 </Alert>
                             ))
-                        )}
+                        )} */}
                     </div>
                 </div>
             </React.Fragment>
