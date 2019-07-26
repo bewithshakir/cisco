@@ -108,7 +108,7 @@ class Dashboard extends Component {
                                     textAlign: 'center',
                                     paddingTop: '50px'
                                 }}>
-                                No related bug information available for entered bug id !
+                                <i className="fa fa-exclamation-triangle"></i> No related bug information available for entered bug id !
                             </div>
                         </div>
                         </div>
@@ -152,7 +152,7 @@ class Dashboard extends Component {
                             <span style={{float:'right',paddingRight:'10px',cursor:'pointer'}}><i className="fa fa-expand"></i></span>
                         </div>
                         <div className="no-data-found">
-                            No Log Info available for entered bug id !
+                           <i className="fa fa-exclamation-triangle"></i> No Log Info available for entered bug id !
                         </div>
                     </div>
                 </div>
@@ -161,6 +161,7 @@ class Dashboard extends Component {
     }
 
     renderTacReproduce(tacData, bugReproData) {
+        console.log('--bugReproData--', bugReproData)
             return (
                 <TacReproducible bannerData={tacData.bug_id ? this.props.bannerData : ''} reproStepsData={bugReproData ? bugReproData : null} />
             )
@@ -205,7 +206,7 @@ Dashboard.propTypes = {
     metaDataAction: propTypes.func.isRequired
 }
 const mapStateToProps = state => {
-    console.log('---state---', state)
+    console.log('--state--', state)
     return {
         metaData: state.metaData.data,
         bugKeyData: state.bugKeywordData,

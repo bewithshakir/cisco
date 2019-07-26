@@ -37,7 +37,6 @@ class Navbar extends Component {
     render() {
         const { isSearchField } = this.state;
         const { metaData } = this.props;
-        console.log('meta---', metaData)
         return (
             <React.Fragment>
                 <div className="top-navabar">

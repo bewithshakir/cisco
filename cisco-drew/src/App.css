@@ -22,6 +22,9 @@
 .App-link {
   color: #61dafb;
 }
+.fa-exclamation-triangle{
+  color:orange;
+}
 
 @keyframes App-logo-spin {
   from {

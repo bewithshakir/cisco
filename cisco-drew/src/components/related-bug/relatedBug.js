@@ -139,8 +139,8 @@ class RelatedBug extends Component {
     render() {
         const { selectedRecords, tabsData, selectedRecord } = this.state;
         return (
-            <div className="banner-container-bottom">
-                <div className="container-fluid">
+            <div className="container-fluid">
+                <div className="banner-container-bottom">
                     <div className="row">
                         <div className="col-md-12">
                             <div className="table-heading-relatedbug">Related Bug/Duplicate Bug</div>
