@@ -17,7 +17,7 @@ import './searchMain.css';
 class SearchMain extends Component {
     state = {
         inputVal: '',
-        errorMsg: false
+        errorMsg: true
     }
     componentDidMount() {
         this.props.loginUserAction();
@@ -28,7 +28,9 @@ class SearchMain extends Component {
         if (localStorage.token) {
             this.props.metaDataAction(localStorage.token);
         }
-
+        
+        
+        
         
     }
     handleSearch() {
@@ -49,14 +51,16 @@ class SearchMain extends Component {
         });
     }
     resetField = ()=> {
-        this.setState({inputVal: ''})
+        this.setState({
+            inputVal: '',
+            errorMsg: false
+        })
     }
     showError() {
 
     }
     render() {
         const { bannerData , metaData} = this.props;
-        
         return (
             <React.Fragment>
                 {/* <NavBar /> */}
@@ -67,9 +71,8 @@ class SearchMain extends Component {
                     </div> */}
                     <NavBar bugId={this.state.bugId}
                     history={this.props.history}
-                    username={metaData ? metaData.username : 'vipikum3'}
-                    displayUsername={metaData ? metaData.displayUsername : ''} 
-                    isSearchField={false}/>
+                    metaData={localStorage.metaData ? JSON.parse(localStorage.metaData) : metaData}
+                    isSearchField={false} />
 
 
                     <div className="search-section">
@@ -82,10 +85,10 @@ class SearchMain extends Component {
                             <button className="btn btn-primary btn-search" onClick={() => this.handleSearch()} disabled={this.state.inputVal ? false: true}>Search</button>
                         </div>
                         
-                        {(this.state.errorMsg || (bannerData.hasOwnProperty('isError'))) && (
+                        {(bannerData.hasOwnProperty('err')) && (
                             ['danger'].map((variant, idx) => (
                                 <Alert key={idx} variant={variant}>
-                                    {bannerData.hasOwnProperty('isError') ? bannerData.errorMsg : 'Please fill the bug id'}
+                                    {bannerData.err}
                             </Alert>
                             ))
                         )}

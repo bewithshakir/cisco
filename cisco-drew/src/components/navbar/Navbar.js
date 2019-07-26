@@ -36,6 +36,8 @@ class Navbar extends Component {
     
     render() {
         const { isSearchField } = this.state;
+        const { metaData } = this.props;
+        console.log('meta---', metaData)
         return (
             <React.Fragment>
                 <div className="top-navabar">
@@ -54,7 +56,7 @@ class Navbar extends Component {
                                         
                                         {isSearchField && (
                                             <div className="input-group">
-                                                <input type="text" className="form-control input-box-position" placeholder="Bug ID" aria-label="bugID" aria-describedby="basic-addon1"
+                                                <input type="text" className="form-control input-box-position" placeholder="Enter CDETS bug id" aria-label="bugID" aria-describedby="basic-addon1"
                                                     value={this.state.bugId}
                                                     onChange={this.handleChange}
                                                     onKeyUp={(e) => this.searchData(e)}
@@ -69,7 +71,7 @@ class Navbar extends Component {
                                                         placement={placement}
                                                         overlay={
                                                             <Tooltip id={`tooltip-${placement}`}>
-                                                                Enter cdets bug id on search field
+                                                                Enter cdets bug id on search field and press enter
                                                             </Tooltip>
                                                         }
                                                         >
@@ -102,8 +104,8 @@ class Navbar extends Component {
                                                 </OverlayTrigger>
                                             ))}
                                         </ButtonToolbar>
-                                        <img src={`http://wwwin.cisco.com/dir/photo/zoom/${this.state.username ? this.state.username :'na'}.jpg`} className="image-style" />
-                                        <span className="namespace">{this.state.displayUsername ? this.state.displayUsername : 'user Name'}</span>
+                                        <img src={`http://wwwin.cisco.com/dir/photo/zoom/${metaData && metaData.username ? metaData.username :'na'}.jpg`} className="image-style" />
+                                        <span className="namespace">{metaData && metaData.displayUsername ? metaData.displayUsername : 'user Name'}</span>
                                     </div>
 
                                 </div>
@@ -111,40 +113,7 @@ class Navbar extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="navbar-style">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="row">
-                                <div className="col-md-4">
-                                    <div className="row">
-                                        
-                                        <div className="input-group col-md-12">
-                                            <input type="text" className="form-control input-box-position" placeholder="Bug ID" aria-label="bugID" aria-describedby="basic-addon1"
-                                                value={this.state.bugId}
-                                                onChange={this.handleChange}
-                                                onKeyUp={(e) => this.searchData(e)}
-                                            />
-                                            <div className="input-group-prepend symbol-div-style">
-                                                <span className="input-group-text symbol-span-style" id="basic-addon1">
-                                                    <i className="fa fa-search" aria-hidden="true"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-8">
-                                    <div className="row name-row-style">
-                                        <div className="col-md-12 text-right">
-                                        <i className="fa fa-info-circle"></i>
-                                            {/* <i className="fa fa-copy" style={{ padding: '10px' }}></i> */}
-                                            <span><img src={`http://wwwin.cisco.com/dir/photo/zoom/${this.state.username}.jpg`} className="image-style" /></span><span className="namespace">{this.state.displayUserName ? this.state.displayUserName : 'user Name'}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              
             </React.Fragment>
         )
     }

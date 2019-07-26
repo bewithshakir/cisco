@@ -10,6 +10,7 @@ export const metaDataAction = (token) => dispatch => {
     };
     axios.get('http://localhost:52000/api/app/metadata')
       .then(res =>  {
+        localStorage.metaData = JSON.stringify(res.data);
         dispatch({
           type: META_DATA,
           payload: res

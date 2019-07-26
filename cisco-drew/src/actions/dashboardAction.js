@@ -20,8 +20,8 @@ export const bannerDataAction = (token, bugId, history) => dispatch => {
       .then(res => {
         if (res.data.err) {
           dispatch({
-            type: GET_ERRORS,
-            payload: res.data.err
+            type: GET_BANNER_DETAILS,
+            payload: res.data
           });
         } else {
           dispatch({

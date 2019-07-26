@@ -97,11 +97,26 @@ class Dashboard extends Component {
         if (bugRelatedData.bug_id) {
             return <RelatedBug relatedBugData={bugRelatedData.bug_id ? this.props.bugRelatedData : ''} />
         } else {
-            return <div className="banner-container-bottom"><div style={{
-                color: '#FFF',
-                textAlign: 'center',
-                paddingTop: '50px'
-            }}>No related bug information available for entered bug id !</div></div>
+            return (
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="banner-container-bottom">
+                                <div className="table-heading-relatedbug">Related Bug/Duplicate Bug</div>
+                                <div style={{
+                                    color: '#FFF',
+                                    textAlign: 'center',
+                                    paddingTop: '50px'
+                                }}>
+                                No related bug information available for entered bug id !
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            )
+            
         }
     }
 
@@ -152,14 +167,12 @@ class Dashboard extends Component {
     }
 
     render() {
-        const { bannerData, metaData, bugRelatedData, logData, bugReproData } = this.props;
-        console.log('---metaData-', metaData)
+        const { bannerData, bugRelatedData, logData, bugReproData } = this.props;
         return (
             <React.Fragment>
                 <NavBar bugId={this.state.bugId}
                 history={this.props.history}
-                username={metaData ? metaData.username : ''}
-                displayUsername={metaData ? metaData.displayUsername : ''}
+                metaData={localStorage.metaData ? JSON.parse(localStorage.metaData): null}
                 isSearchField={true} />
                 
                 <div className="" style={{ overflowX: 'hidden' }}>
