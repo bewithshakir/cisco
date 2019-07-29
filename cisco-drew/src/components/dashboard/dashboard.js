@@ -15,7 +15,8 @@ import {
     reproStepsAction,
     bugKeywordsAction,
     logInfoAction,
-    relatedBugsAction
+    relatedBugsAction,
+    bannerDataAction
 } from '../../actions/dashboardAction';
 
 
@@ -46,6 +47,7 @@ class Dashboard extends Component {
         this.props.relatedBugsAction(token, bugId);
         this.props.logInfoAction(token, bugId);
         this.props.bugKeywordsAction(token, bugId);
+
         // this.props.bannerDataAction(token, bugId);
 
 
@@ -76,6 +78,8 @@ class Dashboard extends Component {
                 isTableSearch: false
             }
         });
+
+        
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.metaData !== this.props.metaData) {
@@ -86,11 +90,11 @@ class Dashboard extends Component {
             nextProps.reproStepsAction(token, bugId, cecId);
         }
     }
-    renderBanner(bannerData) {
+    renderBanner(bannerData, bugKeyData) {
         if (bannerData.bug_id) {
-            return <Banner bannerData={bannerData.bug_id ? this.props.bannerData : ''} />
+            return <Banner bannerData={bannerData.bug_id ? this.props.bannerData : ''}  />
         } else {
-            return <Banner bannerData={[]} />
+            return <Banner bannerData={[]} bugKeyData={bugKeyData}/>
         }
     }
     renderRelatedBug(bugRelatedData) {
@@ -167,19 +171,28 @@ class Dashboard extends Component {
             )
     }
 
+    handleSearch(bugId) {
+        console.log('bug---', bugId)
+        this.props.bannerDataAction(localStorage.token, bugId)
+    }
+
+
     render() {
-        const { bannerData, bugRelatedData, logData, bugReproData } = this.props;
+        const { bannerData, bugRelatedData, logData, bugReproData, bugKeyData } = this.props;
+        console.log('keywords', this.props.bugKeyData)
         return (
             <React.Fragment>
                 <NavBar bugId={this.state.bugId}
                 history={this.props.history}
                 metaData={localStorage.metaData ? JSON.parse(localStorage.metaData): null}
-                isSearchField={true} />
+                isSearchField={true} 
+                handleSearch={(bugId)=> this.handleSearch(bugId)}
+                id="search_banner_section"/>
                 
                 <div className="" style={{ overflowX: 'hidden' }}>
 
                     <div className="banner-container">
-                        {this.renderBanner(bannerData)}
+                        {this.renderBanner(bannerData, bugKeyData)}
                     </div>
 
                     <Cardbox />
@@ -222,5 +235,6 @@ export default connect(mapStateToProps, {
     reproStepsAction,
     bugKeywordsAction,
     logInfoAction,
-    relatedBugsAction
+    relatedBugsAction,
+    bannerDataAction
 })(Dashboard);

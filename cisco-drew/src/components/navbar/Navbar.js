@@ -10,6 +10,12 @@ class Navbar extends Component {
         if (!this.props.isSearchField) {
             this.setState({isSearchField: this.props.isSearchField});
         }
+        document.getElementById('search-field').addEventListener('keyup', (e)=> {
+            const bugId = e.target.value;
+            if (e.keyCode === 13) {
+                this.props.handleSearch(bugId);
+            }
+        })
     }
     componentWillReceiveProps(nextPros) {
         if (nextPros.bugId !== this.props.bugId) {
@@ -55,7 +61,7 @@ class Navbar extends Component {
                                         
                                         {isSearchField && (
                                             <div className="input-group">
-                                                <input type="text" className="form-control input-box-position" placeholder="Enter CDETS bug id" aria-label="bugID" aria-describedby="basic-addon1"
+                                                <input type="text" id="search-field" className="form-control input-box-position" placeholder="Enter CDETS bug id" aria-label="bugID" aria-describedby="basic-addon1"
                                                     value={this.state.bugId}
                                                     onChange={this.handleChange}
                                                     onKeyUp={(e) => this.searchData(e)}

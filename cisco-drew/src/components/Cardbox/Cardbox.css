@@ -1,3 +1,6 @@
+.card {
+    border-radius: 4px;
+}
 
 .card-style {
     margin: 15px 0;
@@ -9,21 +12,18 @@
 .first-card{
     background:linear-gradient(140deg, #16eeee, #1479ee);
     color: white;
-    border-radius: 8px;
     height: 140px;
     border: none;
 }
 .second-card{
     background:linear-gradient(60deg, #f5385a, #f46039);
     color: white;
-    border-radius: 8px;
     min-height: 140px;
     border: none;
 }
 .third-card{
     background:linear-gradient(60deg, #2fcf8e, #2dceca);
     color: white;
-    border-radius: 8px;
     min-height: 140px;
     border: none;
 }

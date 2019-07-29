@@ -11,7 +11,7 @@ class Cardbox extends Component {
                             <div className="card-body">
                                 <h5 className="card-title no-margin">TOTAL LOG FILES</h5>
                                 <p className="card-text data-font-structuring" style={{marginBottom:'40px'}}>45</p>
-                               <span style={{float:'right',color:'#d2d2d2'}}>Last Refresh June 29 2019</span>
+                               {/* <span style={{float:'right',color:'#d2d2d2'}}>Last Refresh June 29 2019</span> */}
                             </div>
                         </div>
                     </div>

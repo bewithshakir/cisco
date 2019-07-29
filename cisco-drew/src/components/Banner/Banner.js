@@ -5,10 +5,13 @@ class Banner extends Component {
     state = { data: '' };
     componentDidMount() {
         this.setState({ data: this.props.bannerData })
+        
     }
 
     render() {
         const { bug_id, cdets_link, headline, severity, submitter, to_be_fixed, version } = this.state.data;
+        const { bugKeyData } = this.props;
+        
 
 
         return (
@@ -37,7 +40,11 @@ class Banner extends Component {
                         <span className="lbl-heading">Severity:</span><span className="lbl-text">{severity ? severity : 'Not Available'}</span>
                     </div>
                     <div className="col-md-3">
-                        <span className="lbl-heading">Keywords:</span><span className="lbl-text">work port channel</span>
+                        <span className="lbl-heading">Keywords:</span><span className="lbl-text"> 
+                            {bugKeyData && (
+                                bugKeyData.keywords ? bugKeyData.keywords: bugKeyData.err
+                            )}
+                        </span>
                     </div>
 
                 </div>
